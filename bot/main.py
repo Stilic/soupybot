@@ -16,29 +16,8 @@ def serverStart():
   with socketserver.TCPServer(("", 8000), handler) as httpd:
     httpd.serve_forever()
 
-def inpt():
-  global inpts
-  try:
-    while True:
-      print("Commands")
-      print('  [s]top')
-      inpts = input("bot> ")
-
-      if inpts == "s":
-        print("INFO: The app is stopped now!")
-        quit()
-  except KeyboardInterrupt:
-      print("INFO: The app is stopped now!")
-      quit()
-
-inpts = ""
-
-inputx = Thread(None, inpt, None, ())
-
 servesx = Thread(None, serverStart, None, ())
 servesx.start()
-
-rebootBot = False
 
 client = commands.Bot(command_prefix=".")
 token = os.getenv("DISCORD_BOT_TOKEN")
@@ -47,7 +26,6 @@ token = os.getenv("DISCORD_BOT_TOKEN")
 async def on_ready() :
     await client.change_presence(status = discord.Status.idle, activity = discord.Game("Listening to .help"))
     print("INFO: Bot is online")
-    inputx.start()
 
 @client.command()
 async def ping(ctx) :
