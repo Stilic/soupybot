@@ -45,7 +45,7 @@ async def clear(ctx, amount):
   else:
     try:
       await ctx.channel.purge(limit=amount)
-    except ValueError:
+    except discord.ext.commands.errors.MissingRequiredArgument:
       await ctx.send("Sorry but that's don't work! Please retry!")
 
 @client.command()
@@ -57,6 +57,3 @@ try:
   client.run(token)
 except KeyboardInterrupt:
   print("INFO: We quit now!")
-
-finally:
-  os._quit(1)
