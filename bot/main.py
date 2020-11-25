@@ -42,6 +42,11 @@ async def clear(ctx, amount=3):
   """Clear a number of messages you specify (by default 3)"""
   await ctx.channel.purge(limit=amount)
 
+@client.command()
+async def random-img(ctx):
+  """Sends a random image. (they uses https://picsum.photos for this)"""
+  await ctx.send("https://picsum.photos/300/300")
+
 try:
   client.run(token)
 except KeyboardInterrupt:
