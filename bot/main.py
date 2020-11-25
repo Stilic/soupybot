@@ -34,7 +34,7 @@ async def ping(ctx):
 
 @client.command(name="whoami")
 async def whoami(ctx):
-  """Shows what guy have send this command."""
+  """Shows what guy have send this command"""
   await ctx.send(f"You are {ctx.message.author.name}")
 
 @client.command()
@@ -44,7 +44,7 @@ async def clear(ctx, amount=3):
 
 @client.command()
 async def randomimg(ctx):
-  """Sends a random image. (they uses https://picsum.photos for this)"""
+  """Sends a random image (they uses https://picsum.photos for this)"""
   await ctx.send("https://picsum.photos/300/300")
 
 try:
