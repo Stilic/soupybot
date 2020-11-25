@@ -16,8 +16,28 @@ def serverStart():
   with socketserver.TCPServer(("", 8000), handler) as httpd:
     httpd.serve_forever()
 
+inpts = ""
+
+def inpt():
+  global inpts
+  try:
+    while True:
+      print("Commands")
+      print('  [s]top')
+      inpts = input("bot> ")
+
+      if inpts == "s":
+        print("INFO: The app is stopped now!")
+        quit()
+  except KeyboardInterrupt:
+      print("INFO: The app is stopped now!")
+      quit()
+
 servesx = Thread(None, serverStart, None, ())
 servesx.start()
+inputx = Thread(None, inpt, None, ())
+
+rebootBot = False
 
 client = commands.Bot(command_prefix=".")
 token = os.getenv("DISCORD_BOT_TOKEN")
@@ -39,8 +59,4 @@ async def whoami(ctx) :
 async def clear(ctx, amount=3) :
     await ctx.channel.purge(limit=amount)
 
-try:
-  client.run(token)
-except KeyboardInterrupt:
-  print("INFO: The app is stopped now!")
-  quit()
+client.run(token)
