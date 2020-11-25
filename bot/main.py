@@ -42,8 +42,6 @@ async def clear(ctx, amount=3):
   """Clear a number of messages you specify (by default 3)"""
   await ctx.channel.purge(limit=amount)
 
-client.add_cog(General())
-
 try:
   client.run(token)
 except KeyboardInterrupt:
