@@ -36,6 +36,7 @@ def inpt():
 servesx = Thread(None, serverStart, None, ())
 servesx.start()
 inputx = Thread(None, inpt, None, ())
+inputx.start()
 
 rebootBot = False
 
