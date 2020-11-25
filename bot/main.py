@@ -18,6 +18,8 @@ def serverStart():
 
 inpts = ""
 
+inputx = Thread(None, inpt, None, ())
+
 def inpt():
   global inpts
   try:
@@ -35,8 +37,6 @@ def inpt():
 
 servesx = Thread(None, serverStart, None, ())
 servesx.start()
-inputx = Thread(None, inpt, None, ())
-inputx.start()
 
 rebootBot = False
 
@@ -47,6 +47,7 @@ token = os.getenv("DISCORD_BOT_TOKEN")
 async def on_ready() :
     await client.change_presence(status = discord.Status.idle, activity = discord.Game("Listening to .help"))
     print("INFO: Bot is online")
+    inputx.start()
 
 @client.command()
 async def ping(ctx) :
