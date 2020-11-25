@@ -27,7 +27,7 @@ async def on_ready() :
   await client.change_presence(status = discord.Status.idle, activity = discord.Game("For help: type .help"))
   print("INFO: Bot is online\nINFO: For quit, press Ctrl+C")
 
-class General:
+class General(commands.Cog):
   @client.command()
   async def ping(ctx):
     """I am fast or no?"""
