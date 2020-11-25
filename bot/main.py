@@ -45,7 +45,7 @@ async def clear(ctx, amount):
   else:
     try:
       await ctx.channel.purge(limit=amount)
-    except discord.ext.commands.errors.MissingRequiredArgument:
+    except:
       await ctx.send("Sorry but that's don't work! Please retry!")
 
 @client.command()
