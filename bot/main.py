@@ -43,7 +43,7 @@ async def clear(ctx, amount=3):
   await ctx.channel.purge(limit=amount)
 
 @client.command()
-async def random-img(ctx):
+async def randomimg(ctx):
   """Sends a random image. (they uses https://picsum.photos for this)"""
   await ctx.send("https://picsum.photos/300/300")
 
