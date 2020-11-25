@@ -1,7 +1,7 @@
 # basics modules
 import os
 from threading import Thread
-import git-sync
+import gitsync
 
 # server modules
 import http.server
