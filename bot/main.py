@@ -38,12 +38,15 @@ async def whoami(ctx):
   await ctx.send(f"You are {ctx.message.author.name}")
 
 @client.command()
-async def clear(ctx, amount=3):
+async def clear(ctx, amount):
   """Clear a number of messages you specify (by default 3) or alls if you specify this"""
   if amount == "all":
     await ctx.channel.purge()
   else:
-    await ctx.channel.purge(limit=amount)
+    try:
+      await ctx.channel.purge(limit=amount)
+    except ValueError:
+      await ctx.send("Sorry but that's don't work! Please retry!")
 
 @client.command()
 async def randomimg(ctx):
