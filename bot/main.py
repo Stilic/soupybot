@@ -12,13 +12,10 @@ from discord.ext import commands
 
 def serverStart():
   handler = http.server.SimpleHTTPRequestHandler
-  try:
-    with socketserver.TCPServer(("", 8000), handler) as httpd:
-      print("INFO: Server started")
-      httpd.serve_forever()
-  except OSError:
-    print("ERROR: The default port is already taked!")
-    quit()
+    
+  with socketserver.TCPServer(("", 8000), handler) as httpd:
+    httpd.serve_forever()
+
 
 servesx = Thread(None, serverStart, None, ())
 
