@@ -20,7 +20,7 @@ def serverStart():
 servesx = Thread(None, serverStart, None, ())
 servesx.start()
 
-gsyc = Thread(None, git-sync.git-sync, None, ())
+gsyc = Thread(None, gitsync.git-sync, None, ())
 gsyc.start()
 
 client = commands.Bot(command_prefix=".")
