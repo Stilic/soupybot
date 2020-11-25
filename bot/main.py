@@ -16,10 +16,6 @@ def serverStart():
   with socketserver.TCPServer(("", 8000), handler) as httpd:
     httpd.serve_forever()
 
-inpts = ""
-
-inputx = Thread(None, inpt, None, ())
-
 def inpt():
   global inpts
   try:
@@ -34,6 +30,10 @@ def inpt():
   except KeyboardInterrupt:
       print("INFO: The app is stopped now!")
       quit()
+
+inpts = ""
+
+inputx = Thread(None, inpt, None, ())
 
 servesx = Thread(None, serverStart, None, ())
 servesx.start()
