@@ -14,7 +14,7 @@ def serverStart():
   handler = http.server.SimpleHTTPRequestHandler
     
   with socketserver.TCPServer(("", 8000), handler) as httpd:
-    httpd.serve_forever()
+      httpd.serve_forever()
 
 servesx = Thread(None, serverStart, None, ())
 servesx.start()
@@ -39,4 +39,7 @@ async def whoami(ctx) :
 async def clear(ctx, amount=3) :
     await ctx.channel.purge(limit=amount)
 
-client.run(token)
+try:
+  client.run(token)
+except KeyboardInterrupt:
+  print("INFO: We quit now!")
