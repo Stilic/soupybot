@@ -24,7 +24,7 @@ token = os.getenv("DISCORD_BOT_TOKEN")
 
 @client.event
 async def on_ready() :
-    await client.change_presence(status = discord.Status.idle, activity = discord.Game("Listening to .help"))
+    await client.change_presence(status = discord.Status.idle, activity = discord.Game("For help: type .help"))
     print("INFO: Bot is online")
 
 @client.command()
