@@ -17,7 +17,7 @@ def serverStart():
     httpd.serve_forever()
 
 servesx = Thread(None, serverStart, None, ())
-serverx.start()
+servesx.start()
 
 client = commands.Bot(command_prefix=".")
 token = os.getenv("DISCORD_BOT_TOKEN")
