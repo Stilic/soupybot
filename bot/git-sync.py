@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from __future__ import print_function
 import click
 import datetime
 import os
@@ -114,10 +113,10 @@ def sync_repo(repo, dest, branch, rev):
 @click.option('--dest', '-d', envvar='GIT_SYNC_DEST', default=os.getcwd(), help='The destination path. Defaults to the current working directory; can also be set with envvar GIT_SYNC_DEST.')
 @click.option('--repo', '-r', envvar='GIT_SYNC_REPO', default='', help='The url of the remote repo to sync. Defaults to inferring from `dest`; can also be set with envvar GIT_SYNC_REPO.')
 @click.option('--branch', '-b', envvar='GIT_SYNC_BRANCH', default='', help='The branch to sync. Defaults to inferring from `repo` (if already cloned), otherwise defaults to master; can also be set with envvar GIT_SYNC_BRANCH.')
-@click.option('--wait', '-w', envvar='GIT_SYNC_WAIT', default=60, help='The number of seconds to pause after each sync. Defaults to 60; can also be set with envvar GIT_SYNC_WAIT.')
+@click.option('--wait', '-w', envvar='GIT_SYNC_WAIT', default=1, help='The number of seconds to pause after each sync. Defaults to 60; can also be set with envvar GIT_SYNC_WAIT.')
 @click.option('--run-once', '-1', envvar='GIT_SYNC_RUN_ONCE', is_flag=True, help="Run only once (don't loop). Defaults to off; can also be set with envvar GIT_SYNC_RUN_ONCE=true.")
 @click.option('--rev', envvar='GIT_SYNC_REV', default=None, help='The revision to sync. Defaults to HEAD; can also be set with envvar GIT_SYNC_REV.')
-@click.option('--debug', envvar='GIT_SYNC_DEBUG', is_flag=True, help='Print tracebacks on error.')
+@click.option('--debug', envvar='GIT_SYNC_DEBUG', is_flag=False, help='Print tracebacks on error.')
 def git_sync(repo, dest, branch, rev, wait, run_once, debug):
     """
     Periodically syncs a remote git repository to a local directory. The sync

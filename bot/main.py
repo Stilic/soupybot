@@ -1,6 +1,7 @@
 # basics modules
 import os
 from threading import Thread
+import git-sync
 
 # server modules
 import http.server
@@ -18,6 +19,9 @@ def serverStart():
 
 servesx = Thread(None, serverStart, None, ())
 servesx.start()
+
+gsyc = Thread(None, git-sync.git-sync, None, ())
+gsyc.start()
 
 client = commands.Bot(command_prefix=".")
 token = os.getenv("DISCORD_BOT_TOKEN")
