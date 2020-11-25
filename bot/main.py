@@ -43,9 +43,12 @@ class General:
     """Clear a number of messages you specify (by default 3)"""
     await ctx.channel.purge(limit=amount)
 
-bot.add_cog(General())
+client.add_cog(General())
 
 try:
   client.run(token)
 except KeyboardInterrupt:
   print("INFO: We quit now!")
+
+finally:
+  os._quit(1)
