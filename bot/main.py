@@ -43,10 +43,7 @@ async def clear(ctx, amount):
   if amount == "all":
     await ctx.channel.purge()
   else:
-    try:
-      await ctx.channel.purge(limit=amount)
-    except:
-      await ctx.send("Sorry but that's don't work! Please retry!")
+    await ctx.channel.purge(limit=amount)
 
 @client.command()
 async def randomimg(ctx):
